@@ -7,6 +7,11 @@ const bodyParser = require('body-parser')
 
 server.use(bodyParser.json())
 
+server.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next()
+})
+
 server.get('/empresas', function(req, res) {
     
     db.all(`SELECT * FROM empresas`, (err, rows)=> {
