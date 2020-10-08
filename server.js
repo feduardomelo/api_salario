@@ -5,8 +5,10 @@ const db = require('./db')
 const port = process.env.PORT || 4000
 const bodyParser = require('body-parser')
 
+//para transformar minhas reqs num formato json
 server.use(bodyParser.json())
 
+//configurando Header para que qualquer um possa acessar minha api
 server.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     next()
